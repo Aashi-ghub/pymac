@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>py2mac package &mdash; Py2Mac 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="py2mac.data_extraction package" href="py2mac.data_extraction.html" />
+    <link rel="prev" title="Welcome to Py2Mac’s Documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Py2Mac
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">py2mac package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="py2mac.data_extraction.html">py2mac.data_extraction package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac.application">py2mac.application module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.application.Application"><code class="docutils literal notranslate"><span class="pre">Application</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.pid"><code class="docutils literal notranslate"><span class="pre">Application.pid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.application"><code class="docutils literal notranslate"><span class="pre">Application.application</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.running_application"><code class="docutils literal notranslate"><span class="pre">Application.running_application</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.bundle_url"><code class="docutils literal notranslate"><span class="pre">Application.bundle_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.executable_url"><code class="docutils literal notranslate"><span class="pre">Application.executable_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.from_frontmost_app"><code class="docutils literal notranslate"><span class="pre">Application.from_frontmost_app()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.from_menu_bar_owning_app"><code class="docutils literal notranslate"><span class="pre">Application.from_menu_bar_owning_app()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.from_pid"><code class="docutils literal notranslate"><span class="pre">Application.from_pid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.get_ui_element"><code class="docutils literal notranslate"><span class="pre">Application.get_ui_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.localized_name"><code class="docutils literal notranslate"><span class="pre">Application.localized_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.refresh_ui_tree"><code class="docutils literal notranslate"><span class="pre">Application.refresh_ui_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.application.Application.root_ui_element"><code class="docutils literal notranslate"><span class="pre">Application.root_ui_element</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.application.get_running_applications"><code class="docutils literal notranslate"><span class="pre">get_running_applications()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac.exceptions">py2mac.exceptions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.exceptions.Py2MacError"><code class="docutils literal notranslate"><span class="pre">Py2MacError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.exceptions.UIActionError"><code class="docutils literal notranslate"><span class="pre">UIActionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.exceptions.UIAttributeAccessError"><code class="docutils literal notranslate"><span class="pre">UIAttributeAccessError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac.json_utils">py2mac.json_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.json_utils.json_serializable"><code class="docutils literal notranslate"><span class="pre">json_serializable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac.ui">py2mac.ui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.ui.UIAction"><code class="docutils literal notranslate"><span class="pre">UIAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIAction.name"><code class="docutils literal notranslate"><span class="pre">UIAction.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIAction.parent_ui_element"><code class="docutils literal notranslate"><span class="pre">UIAction.parent_ui_element</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIAction.__call__"><code class="docutils literal notranslate"><span class="pre">UIAction.__call__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">UIAction.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">UIAction.parent_ui_element</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.ui.UIElement"><code class="docutils literal notranslate"><span class="pre">UIElement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.actions"><code class="docutils literal notranslate"><span class="pre">UIElement.actions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.asdict"><code class="docutils literal notranslate"><span class="pre">UIElement.asdict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.attributes"><code class="docutils literal notranslate"><span class="pre">UIElement.attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.children"><code class="docutils literal notranslate"><span class="pre">UIElement.children</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.is_attribute_settable"><code class="docutils literal notranslate"><span class="pre">UIElement.is_attribute_settable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.items"><code class="docutils literal notranslate"><span class="pre">UIElement.items()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.path"><code class="docutils literal notranslate"><span class="pre">UIElement.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.path_str"><code class="docutils literal notranslate"><span class="pre">UIElement.path_str</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#py2mac.ui.UIElement.settable_attributes"><code class="docutils literal notranslate"><span class="pre">UIElement.settable_attributes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac.utils">py2mac.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#py2mac.utils.check_access"><code class="docutils literal notranslate"><span class="pre">check_access()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-py2mac">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Py2Mac</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">py2mac package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/py2mac.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="py2mac-package">
+<h1>py2mac package<a class="headerlink" href="#py2mac-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="py2mac.data_extraction.html">py2mac.data_extraction package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="py2mac.data_extraction.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="py2mac.data_extraction.html#module-py2mac.data_extraction.main">py2mac.data_extraction.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="py2mac.data_extraction.html#py2mac.data_extraction.main.clean_ui_tree"><code class="docutils literal notranslate"><span class="pre">clean_ui_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="py2mac.data_extraction.html#py2mac.data_extraction.main.flatten_ui_tree"><code class="docutils literal notranslate"><span class="pre">flatten_ui_tree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="py2mac.data_extraction.html#module-py2mac.data_extraction">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="py2mac.data_extraction.html#py2mac.data_extraction.clean_ui_tree"><code class="docutils literal notranslate"><span class="pre">clean_ui_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="py2mac.data_extraction.html#py2mac.data_extraction.flatten_ui_tree"><code class="docutils literal notranslate"><span class="pre">flatten_ui_tree()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-py2mac.application">
+<span id="py2mac-application-module"></span><h2>py2mac.application module<a class="headerlink" href="#module-py2mac.application" title="Link to this heading"></a></h2>
+<p>This module provides the <cite>Application</cite> class for interacting with running macOS applications via the Accessibility API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="py2mac.application.Application">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.application.</span></span><span class="sig-name descname"><span class="pre">Application</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">application</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class representing a running macOS application, providing methods to interact with its UI elements via the Accessibility API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="py2mac.application.Application.pid">
+<span class="sig-name descname"><span class="pre">pid</span></span><a class="headerlink" href="#py2mac.application.Application.pid" title="Link to this definition"></a></dt>
+<dd><p>The process identifier of the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="py2mac.application.Application.application">
+<span class="sig-name descname"><span class="pre">application</span></span><a class="headerlink" href="#py2mac.application.Application.application" title="Link to this definition"></a></dt>
+<dd><p>The accessibility element representing the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AS.AXUIElementRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="py2mac.application.Application.running_application">
+<span class="sig-name descname"><span class="pre">running_application</span></span><a class="headerlink" href="#py2mac.application.Application.running_application" title="Link to this definition"></a></dt>
+<dd><p>The NSRunningApplication instance representing the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AS.NSRunningApplication</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.application.Application.bundle_url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bundle_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#py2mac.application.Application.bundle_url" title="Link to this definition"></a></dt>
+<dd><p>The file URL of the application’s bundle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.application.Application.executable_url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">executable_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#py2mac.application.Application.executable_url" title="Link to this definition"></a></dt>
+<dd><p>The file URL of the application’s executable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.application.Application.from_frontmost_app">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_frontmost_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application.from_frontmost_app" title="Link to this definition"></a></dt>
+<dd><p>Returns the frontmost application, which is the application that currently receives key events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance representing the frontmost application.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#py2mac.application.Application" title="py2mac.application.Application">Application</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.application.Application.from_menu_bar_owning_app">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_menu_bar_owning_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application.from_menu_bar_owning_app" title="Link to this definition"></a></dt>
+<dd><p>Returns the application that owns the currently displayed menu bar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance representing the application that owns the menu bar.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#py2mac.application.Application" title="py2mac.application.Application">Application</a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method usually returns the frontmost application, same as <cite>from_frontmost_app</cite>, as in macOS the menu bar is generally owned by the active application.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.application.Application.from_pid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application.from_pid" title="Link to this definition"></a></dt>
+<dd><p>Create an Application object from a process ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pid</strong> (<em>int</em>) – The process identifier of the application.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance representing the application with the given PID.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#py2mac.application.Application" title="py2mac.application.Application">Application</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If no application with the given PID is found.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is not the most efficient way to retrieve an application by PID, as it iterates over all running applications. This may be optimized in future versions.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.application.Application.get_ui_element">
+<span class="sig-name descname"><span class="pre">get_ui_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application.get_ui_element" title="Link to this definition"></a></dt>
+<dd><p>Get a UI element by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_id</strong> (<em>str</em>) – The unique ID of the UI element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The UI element with the specified ID.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the UI element with the specified ID is not found.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get up-to-date data, <cite>refresh_ui_tree</cite> must be called to populate the internal cache before calling this method.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.application.Application.localized_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">localized_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#py2mac.application.Application.localized_name" title="Link to this definition"></a></dt>
+<dd><p>The localized name of the application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.application.Application.refresh_ui_tree">
+<span class="sig-name descname"><span class="pre">refresh_ui_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.Application.refresh_ui_tree" title="Link to this definition"></a></dt>
+<dd><p>Refresh the state of UI elements of the application.</p>
+<p>This method rebuilds the internal cache of UI elements by traversing the application’s UI element tree starting from the root UI element.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The IDs of UI elements are not currently deterministic between calls to this method. This is intended to be improved in future versions.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.application.Application.root_ui_element">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root_ui_element</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement"><span class="pre">UIElement</span></a></em><a class="headerlink" href="#py2mac.application.Application.root_ui_element" title="Link to this definition"></a></dt>
+<dd><p>The root UIElement of the application, representing the main window or the application itself.</p>
+<p>This property provides access to the root of the application’s UI element tree, with children lazily loaded as needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The root UIElement instance.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a></p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="py2mac.application.get_running_applications">
+<span class="sig-prename descclassname"><span class="pre">py2mac.application.</span></span><span class="sig-name descname"><span class="pre">get_running_applications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.application.get_running_applications" title="Link to this definition"></a></dt>
+<dd><p>Get a list of all running applications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of Application instances representing all running applications.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#py2mac.application.Application" title="py2mac.application.Application">Application</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-py2mac.exceptions">
+<span id="py2mac-exceptions-module"></span><h2>py2mac.exceptions module<a class="headerlink" href="#module-py2mac.exceptions" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="py2mac.exceptions.Py2MacError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.exceptions.</span></span><span class="sig-name descname"><span class="pre">Py2MacError</span></span><a class="headerlink" href="#py2mac.exceptions.Py2MacError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base exception class for all Py2Mac-related errors.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="py2mac.exceptions.UIActionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.exceptions.</span></span><span class="sig-name descname"><span class="pre">UIActionError</span></span><a class="headerlink" href="#py2mac.exceptions.UIActionError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#py2mac.exceptions.Py2MacError" title="py2mac.exceptions.Py2MacError"><code class="xref py py-class docutils literal notranslate"><span class="pre">Py2MacError</span></code></a></p>
+<p>Exception raised when an error occurs while performing a UI action.</p>
+<p>This exception is typically raised when an action on a UIElement fails,
+such as when the UIElement does not support the action, the action is invalid,
+or due to insufficient accessibility permissions.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">ui_element</span><span class="o">.</span><span class="n">perform_action</span><span class="p">(</span><span class="s1">&#39;AXPress&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">UIActionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to perform action: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="py2mac.exceptions.UIAttributeAccessError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.exceptions.</span></span><span class="sig-name descname"><span class="pre">UIAttributeAccessError</span></span><a class="headerlink" href="#py2mac.exceptions.UIAttributeAccessError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#py2mac.exceptions.Py2MacError" title="py2mac.exceptions.Py2MacError"><code class="xref py py-class docutils literal notranslate"><span class="pre">Py2MacError</span></code></a></p>
+<p>Exception raised when an error occurs while accessing a UI attribute.</p>
+</dd></dl>
+
+</section>
+<section id="module-py2mac.json_utils">
+<span id="py2mac-json-utils-module"></span><h2>py2mac.json_utils module<a class="headerlink" href="#module-py2mac.json_utils" title="Link to this heading"></a></h2>
+<p>Utility module for converting Python objects to JSON-serializable formats.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="py2mac.json_utils.json_serializable">
+<span class="sig-prename descclassname"><span class="pre">py2mac.json_utils.</span></span><span class="sig-name descname"><span class="pre">json_serializable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_underscore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.json_utils.json_serializable" title="Link to this definition"></a></dt>
+<dd><p>Recursively convert a Python object to a JSON-serializable format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o</strong> (<em>Any</em>) – The object to be converted.</p></li>
+<li><p><strong>skip_underscore</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, dictionary keys starting with an underscore (‘_’) are skipped.
+Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A JSON-serializable representation of the input object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The function uses <cite>singledispatch</cite> to handle different types.</p></li>
+<li><p>By default, types that are not explicitly handled will be ignored in the output.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">json_serializable</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;_b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">skip_underscore</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">{&#39;a&#39;: 1}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-py2mac.ui">
+<span id="py2mac-ui-module"></span><h2>py2mac.ui module<a class="headerlink" href="#module-py2mac.ui" title="Link to this heading"></a></h2>
+<p>This module provides classes and functions for interacting with UI elements via the macOS Accessibility API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="py2mac.ui.UIAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.ui.</span></span><span class="sig-name descname"><span class="pre">UIAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_ui_element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIAction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents an action that can be performed on a UIElement.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="py2mac.ui.UIAction.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#py2mac.ui.UIAction.name" title="Link to this definition"></a></dt>
+<dd><p>The name of the action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="py2mac.ui.UIAction.parent_ui_element">
+<span class="sig-name descname"><span class="pre">parent_ui_element</span></span><a class="headerlink" href="#py2mac.ui.UIAction.parent_ui_element" title="Link to this definition"></a></dt>
+<dd><p>The UIElement this action belongs to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.ui.UIAction.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIAction.__call__" title="Link to this definition"></a></dt>
+<dd><p>Executes the action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">parent_ui_element</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIElement</span></code></a></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">py2mac.ui.</span></span><span class="sig-name descname"><span class="pre">UIElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">application</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_ui_element</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIElement" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a UI element in a macOS application, providing methods to interact with it via the Accessibility API.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.actions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#py2mac.ui.UIElement.actions" title="Link to this definition"></a></dt>
+<dd><p>Get a list of all actions that can be performed on this UIElement.</p>
+<p>Actions can be performed by calling the action as a method on the UIElement.</p>
+<p class="rubric">Example</p>
+<p>element = UIElement(handle)
+element.AXPress()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of action names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.asdict">
+<span class="sig-name descname"><span class="pre">asdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_action_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">included_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">included_actions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes_skipped_if_false</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_parent_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_empty_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">included_empty_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIElement.asdict" title="Link to this definition"></a></dt>
+<dd><p>Convert the UIElement to a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include_children</strong> (<em>bool</em>) – Whether to include the children of the UIElement.</p></li>
+<li><p><strong>include_action_names</strong> (<em>bool</em>) – Whether to include the names of the actions that can be performed.</p></li>
+<li><p><strong>included_attributes</strong> (<em>Optional</em><em>[</em><em>Collection</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Specific attributes to include. If None, all are included.</p></li>
+<li><p><strong>included_actions</strong> (<em>Optional</em><em>[</em><em>Collection</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Specific actions to include. If None, all are included.</p></li>
+<li><p><strong>attributes_skipped_if_false</strong> (<em>Optional</em><em>[</em><em>Collection</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Attributes to skip if their value is False. Default is [‘AXSelected’].</p></li>
+<li><p><strong>include_path</strong> (<em>bool</em>) – Whether to include the path of the UIElement.</p></li>
+<li><p><strong>include_parent_id</strong> (<em>bool</em>) – Whether to include the ID of the parent UIElement.</p></li>
+<li><p><strong>include_empty_attributes</strong> (<em>bool</em>) – Whether to include attributes with empty values.</p></li>
+<li><p><strong>included_empty_attributes</strong> (<em>Optional</em><em>[</em><em>Collection</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Specific empty attributes to include. If None and <cite>include_empty_attributes=False</cite>, no empty attributes are included.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary representation of the UIElement.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.attributes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attributes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#py2mac.ui.UIElement.attributes" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the list of attribute names available for this UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of attribute names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Uses <cite>cached_property</cite> to avoid redundant API calls.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.children">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">children</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement"><span class="pre">UIElement</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#py2mac.ui.UIElement.children" title="Link to this definition"></a></dt>
+<dd><p>Get the child UIElements of this UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of child UIElements.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a>]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the UIElement has no children, an empty list is returned.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.is_attribute_settable">
+<span class="sig-name descname"><span class="pre">is_attribute_settable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIElement.is_attribute_settable" title="Link to this definition"></a></dt>
+<dd><p>Check if an attribute is settable for this UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attribute</strong> (<em>str</em>) – The attribute name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the attribute is settable, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.ui.UIElement.items" title="Link to this definition"></a></dt>
+<dd><p>Get a list of attribute-value pairs for the UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of (attribute name, value) tuples.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement"><span class="pre">UIElement</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#py2mac.ui.UIElement.path" title="Link to this definition"></a></dt>
+<dd><p>Get the path from the root UIElement to this UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of UIElements representing the path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#py2mac.ui.UIElement" title="py2mac.ui.UIElement">UIElement</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.path_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#py2mac.ui.UIElement.path_str" title="Link to this definition"></a></dt>
+<dd><p>Get a string representation of the UIElement’s path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string showing the path of UIElements separated by ‘-&gt;’.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="py2mac.ui.UIElement.settable_attributes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">settable_attributes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#py2mac.ui.UIElement.settable_attributes" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the list of attribute names available for this UIElement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of attribute names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Uses <cite>cached_property</cite> to avoid redundant API calls.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-py2mac.utils">
+<span id="py2mac-utils-module"></span><h2>py2mac.utils module<a class="headerlink" href="#module-py2mac.utils" title="Link to this heading"></a></h2>
+<p>This module provides various utility functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="py2mac.utils.check_access">
+<span class="sig-prename descclassname"><span class="pre">py2mac.utils.</span></span><span class="sig-name descname"><span class="pre">check_access</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#py2mac.utils.check_access" title="Link to this definition"></a></dt>
+<dd><p>Check if the current process has accessibility permissions.</p>
+<p>This function determines whether the application is trusted to use the Accessibility API.
+If the application is not trusted, it will prompt the user to grant access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the process is trusted with accessibility permissions, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This function uses the <cite>AXIsProcessTrustedWithOptions</cite> function from the ApplicationServices framework.</p></li>
+<li><p>The <cite>options</cite> dictionary includes <cite>AXTrustedCheckOptionPrompt: True</cite> to enable prompting.</p></li>
+<li><p>If the application is not trusted, macOS will display a prompt requesting accessibility permissions.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="ow">not</span> <span class="n">check_access</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accessibility permissions are required.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-py2mac">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-py2mac" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Py2Mac’s Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="py2mac.data_extraction.html" class="btn btn-neutral float-right" title="py2mac.data_extraction package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Rafal Wytrykus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

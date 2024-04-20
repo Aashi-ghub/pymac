@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "py2mac"
+version = "0.1.0"
+description = ""
+authors = ["Rafal Wytrykus <rafal@wytrykus.dev>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyobjc = "^10.2"
+pyobjc-framework-ApplicationServices = "^10.2"
+pyobjc-framework-Accessibility = "^10.2"
+attrs = "^23.2.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+ruff = "^0.4.1"
+pytest = "^8.1.1"
+isort = "^5.13.2"
+fire = "^0.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

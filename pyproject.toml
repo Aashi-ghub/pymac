@@ -1,7 +1,10 @@
 [tool.poetry]
 name = "py2mac"
 version = "0.0.1"
-description = ""
+description = "A Python Interface to macOS Accessibility API for UI Automation and AI Agents"
+repository = "https://github.com/rafalwytrykus/py2mac"
+documentation = "https://py2mac.wytrykus.dev/"
+homepage = "https://py2mac.wytrykus.dev/"
 authors = ["Rafal Wytrykus <rafal@wytrykus.dev>"]
 readme = "README.md"
 license = "Apache-2.0"

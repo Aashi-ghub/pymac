@@ -23,6 +23,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",  # Enables Google-style docstring support
     "sphinx_autodoc_typehints",  # Automatically includes type hints
+    "sphinx_github_style",
+    "myst_parser",
 ]
 
 napoleon_include_private_with_doc = False
@@ -37,5 +39,10 @@ exclude_patterns = []
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+html_context = {
+    "github_user": "rafalwytrykus",
+    "github_repo": "py2mac",
+    "github_version": "master",
+}
 
 sys.path.insert(0, os.path.abspath(os.path.join("..", "..")))

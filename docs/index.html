@@ -6,9 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Py2Mac’s Documentation! &mdash; Py2Mac 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>Welcome to Py2Mac 0.1 Documentation! &mdash; Py2Mac 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=81ef5681" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/github_style.css?v=1093691d" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -61,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to Py2Mac’s Documentation!</li>
+      <li class="breadcrumb-item active">Welcome to Py2Mac 0.1 Documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -71,32 +72,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-py2mac-s-documentation">
-<h1>Welcome to Py2Mac’s Documentation!<a class="headerlink" href="#welcome-to-py2mac-s-documentation" title="Link to this heading"></a></h1>
+  <a class="reference external image-reference" href="https://github.com/rafalwytrykus/py2mac"><img alt="Github Repository" src="https://img.shields.io/badge/GitHub-Py2Mac-blue" />
+</a>
+<section id="welcome-to-py2mac-version-documentation">
+<h1>Welcome to Py2Mac 0.1 Documentation!<a class="headerlink" href="#welcome-to-py2mac-version-documentation" title="Link to this heading"></a></h1>
+<section id="py2mac">
+<h2>Py2Mac<a class="headerlink" href="#py2mac" title="Link to this heading"></a></h2>
+<p>A Python Interface to macOS Accessibility API for <strong>UI Automation</strong> and <strong>AI Agents</strong>.</p>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p><strong>Py2Mac</strong>: A Python Interface to macOS Accessibility API for <strong>UI Automation</strong> and <strong>AI Agents</strong></p>
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p><strong>Py2Mac</strong> was developed with the primary goal of enabling seamless <strong>data extraction</strong>, <strong>automation</strong>, and the
+creation of <strong>autonomous AI agents</strong> that can directly interact with the computer via macOS Accessibility APIs. This
+package simplifies integration with the macOS Accessibility API, making it more accessible from Python. Additionally,
+Py2Mac includes tools for data cleanup and processing to improve data quality for large language models (LLMs) and
+integrates with <a class="reference external" href="https://github.com/langchain-ai/langchain">LangChain</a> for building AI Agents capable of interacting
+with UIs.</p>
+<p>One of Py2Mac’s key features is its reliance on the text-based accessibility tree, which allows it to interact with
+the UI without needing vision-language models (VLMs). By leveraging the same accessibility tools that allow individuals
+with disabilities to use a computer, Py2Mac enables UI interaction solely through text and accessibility data, making it
+compatible with any LLM, including open-source models. This approach illustrates the rationale behind the package: if
+accessibility tools can support effective computer use, an AI agent should also be able to interact with the UI
+independently of VLMs, providing a flexible solution for building autonomous agents.</p>
+</section>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>UI Interaction</strong>: Access and manipulate UI elements programmatically.</p></li>
+<li><p><strong>Data Processing</strong>: Clean and process data to make it more suitable for LLM integrations.</p></li>
+<li><p><strong>LangChain Integration</strong>: Use LangChain tools and examples to build AI Agents capable of interacting with the computer.</p></li>
+</ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>Install Py2Mac via pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>py2mac
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">py2mac</span>
 </pre></div>
 </div>
-<p>Requirements:</p>
+</section>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>Python 3.11+</p></li>
-<li><p>macOS system with Accessibility permissions enabled for the Python interpreter.</p></li>
+<li><p>macOS System with accessibility permissions enabled for your Python interpreter.</p></li>
+<li><p>Python 3.11+ installed on your system.</p></li>
 </ul>
-<p>Setting Up Accessibility Permissions:</p>
-<ol class="arabic simple">
-<li><p>Go to <strong>System Preferences &gt; Security &amp; Privacy &gt; Privacy</strong>.</p></li>
-<li><p>Select <strong>Accessibility</strong> in the left panel.</p></li>
-<li><p>Unlock to make changes, then add your Python interpreter (e.g., <cite>/usr/local/bin/python3</cite>).</p></li>
-</ol>
+</section>
+<section id="enabling-accessibility-permissions">
+<h4>Enabling Accessibility Permissions<a class="headerlink" href="#enabling-accessibility-permissions" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">Security</span> <span class="pre">&amp;</span> <span class="pre">Privacy</span> <span class="pre">&gt;</span> <span class="pre">Privacy</span> <span class="pre">tab</span></code>.</p></li>
+<li><p>Select Accessibility from the left panel.</p></li>
+<li><p>Click the lock icon to make changes and enter your password.</p></li>
+<li><p>Click the + button and add your Python interpreter (e.g., /usr/local/bin/python3).</p></li>
+</ul>
+</section>
 </section>
 <section id="important-disclaimer">
-<h2>IMPORTANT: Disclaimer<a class="headerlink" href="#important-disclaimer" title="Link to this heading"></a></h2>
+<h3>IMPORTANT: Disclaimer<a class="headerlink" href="#important-disclaimer" title="Link to this heading"></a></h3>
 <p><strong>Full System Access</strong>: This package grants access to system applications and data, including the ability to read data
 from applications, interact with their user interfaces, and access minimized or backgrounded apps. Exercise caution to
 prevent unintentional exposure of sensitive information or unintended actions, especially when using the package with an
@@ -105,6 +137,117 @@ AI agent or automation.</p>
 integrating with external services or APIs.</p>
 <p><strong>Require User Confirmation</strong>: For safety and control, no action should be executed by AI agents or automations without
 explicit user confirmation.</p>
+</section>
+<section id="basic-usage">
+<h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h3>
+<section id="accessing-running-applications">
+<h4>Accessing Running Applications<a class="headerlink" href="#accessing-running-applications" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">py2mac.application</span> <span class="kn">import</span> <span class="n">get_running_applications</span>
+
+<span class="c1"># Get all running applications</span>
+<span class="n">apps</span> <span class="o">=</span> <span class="kp">get_running_applications</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">apps</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">localized_name</span><span class="p">,</span> <span class="n">app</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="interacting-with-the-frontmost-application">
+<h4>Interacting with the Frontmost Application<a class="headerlink" href="#interacting-with-the-frontmost-application" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">py2mac.application</span> <span class="kn">import</span> <span class="nc">Application</span>
+
+<span class="c1"># Get the frontmost application (the one currently in focus)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Application</span><span class="o">.</span><span class="kp">from_frontmost_app</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Interacting with: </span><span class="si">{</span><span class="n">app</span><span class="o">.</span><span class="n">localized_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Refresh the UI element tree</span>
+<span class="n">app</span><span class="o">.</span><span class="kp">refresh_ui_tree</span><span class="p">()</span>
+
+<span class="c1"># Access the root UI element</span>
+<span class="n">root_element</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">root_ui_element</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-ui-elements">
+<h3>Working with UI Elements<a class="headerlink" href="#working-with-ui-elements" title="Link to this heading"></a></h3>
+<section id="exploring-ui-elements">
+<h4>Exploring UI Elements<a class="headerlink" href="#exploring-ui-elements" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the UI tree to a dictionary</span>
+<span class="n">ui_tree</span> <span class="o">=</span> <span class="n">root_element</span><span class="o">.</span><span class="kp">asdict</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ui_tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-specific-ui-elements">
+<h4>Accessing Specific UI Elements<a class="headerlink" href="#accessing-specific-ui-elements" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a UI element by its unique ID</span>
+<span class="n">element_id</span> <span class="o">=</span> <span class="s1">&#39;AXButton__OK__123456789&#39;</span>  <span class="c1"># Replace with the actual ID</span>
+<span class="n">ui_element</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="kp">get_ui_element</span><span class="p">(</span><span class="n">element_id</span><span class="p">)</span>
+
+<span class="c1"># Print element attributes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ui_element</span><span class="o">.</span><span class="nc">AXTitle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ui_element</span><span class="o">.</span><span class="nc">AXRole</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="performing-actions-on-ui-elements">
+<h4>Performing Actions on UI Elements<a class="headerlink" href="#performing-actions-on-ui-elements" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform an action (e.g., press a button)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">ui_element</span><span class="o">.</span><span class="nc">AXPress</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Action performed successfully.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="nc">UIActionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to perform action: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
+<p>To get started with the examples, clone the repository and set up the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:rafalwytrykus/py2mac.git
+<span class="nb">cd</span><span class="w"> </span>py2mac
+poetry<span class="w"> </span>install
+</pre></div>
+</div>
+<section id="library-usage-interactive-jupyter-notebook">
+<h4>Library usage interactive jupyter notebook<a class="headerlink" href="#library-usage-interactive-jupyter-notebook" title="Link to this heading"></a></h4>
+<p>The library comes with an
+interactive <a class="reference external" href="https://github.com/rafalwytrykus/py2mac/blob/master/examples/library_usage.ipynb">Jupyter notebook</a> that
+demonstrates the basic usage of the package. To run the notebook, execute the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>examples
+poetry<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+<section id="ai-agent-web-ui-example">
+<h4>AI Agent Web UI Example<a class="headerlink" href="#ai-agent-web-ui-example" title="Link to this heading"></a></h4>
+<p>The library includes examples of <a class="reference external" href="https://github.com/rafalwytrykus/py2mac/blob/master/py2mac/langchain_py2mac/tools.py">LangChain tool</a> integration and an <strong><a class="reference external" href="https://github.com/rafalwytrykus/py2mac/blob/master/examples/py2mac_agent.py">AI Agent</a> capable of interacting with UI elements</strong>.
+To launch the AI Agent example using the Chainlit web UI:</p>
+<ol class="arabic simple">
+<li><p>Start the Chainlit web UI with the following commands:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>examples
+chainlit<span class="w"> </span>run<span class="w"> </span>py2mac_agent.py<span class="w"> </span>-w
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Open the Chainlit web UI in your browser: http://localhost:8000</p></li>
+<li><p>Click on the settings icon in the left corner of input field and select the application you want to interact with
+from the dropdown list.</p></li>
+<li><p>You can now interact with the AI Agent by typing in the input field. The agent can read UI state, set properties, and
+perform actions on UI elements.</p></li>
+</ol>
+<p><strong>NOTE</strong>: For safety reasons, the AI Agent will not perform any actions without explicit user confirmation.
+Confirm each action in the console before it executes.</p>
+</section>
+</section>
+<section id="contributing">
+<h3>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h3>
+<p>Thank you for your interest in contributing to Py2Mac! We welcome contributions of all kinds—whether it’s reporting issues, adding new features, improving documentation, or suggesting ideas.</p>
+<p>Thank you for using Py2Mac! We hope this package helps you develop macOS UI automation and AI agents.</p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -191,7 +334,6 @@ explicit user confirmation.</p>
 </li>
 </ul>
 </div>
-</section>
 </section>
 
 

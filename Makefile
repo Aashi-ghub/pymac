@@ -5,7 +5,7 @@ clean:
 	rm -rf docs/build
 
 apidoc:
-	poetry run sphinx-apidoc -l -o docs/source py2mac
+	poetry run sphinx-apidoc -l -o docs_source py2mac
 
 docs: apidoc
-	poetry run sphinx-build -b html docs/source docs/build
+	poetry run sphinx-build -b html docs_source docs

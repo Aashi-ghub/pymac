@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py2mac"
-version = "0.0.0.post20.dev0+b7b2042"
+version = "0.0.1"
 description = ""
 authors = ["Rafal Wytrykus <rafal@wytrykus.dev>"]
 readme = "README.md"
@@ -29,6 +29,8 @@ sphinx-autodoc-typehints = "^2.5.0"
 sphinx-rtd-theme = "^3.0.1"
 langchain = "^0.3.4"
 langchain-openai = "^0.2.4"
+sphinx-github-style = "^1.2.2"
+myst-parser = "^4.0.0"
 
 
 [tool.poetry-dynamic-versioning]

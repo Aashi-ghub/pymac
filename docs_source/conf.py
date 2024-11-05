@@ -31,7 +31,7 @@ napoleon_include_private_with_doc = False
 
 # Set the theme
 templates_path = ["_templates"]
-exclude_patterns = []
+# exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------

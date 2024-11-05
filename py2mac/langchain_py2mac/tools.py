@@ -80,7 +80,7 @@ def get_ui_state_tool(
         if clean_up_ui_tree:
             ui_tree = py2mac.data_extraction.clean_ui_tree(ui_tree)
         if flatten_ui_tree:
-            ui_tree = py2mac.data_extraction.flatten_ui_tree(ui_tree)
+            return json.dumps(json_serializable(py2mac.data_extraction.flatten_ui_tree(ui_tree)))
 
         return json.dumps(json_serializable(ui_tree))
 

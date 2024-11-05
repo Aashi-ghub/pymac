@@ -40,8 +40,9 @@ class UIElement:
     _handle: AS.AXUIElementRef
     _application: Application
     _parent_ui_element: Optional[UIElement]
+    strict_attribute_access: bool = False
 
-    def __init__(self, handle, application, parent_ui_element=None):
+    def __init__(self, handle, application, parent_ui_element=None, strict_attribute_access=False):
         """
         Initialize a UIElement instance.
 
@@ -49,6 +50,7 @@ class UIElement:
             handle (AS.AXUIElementRef): The accessibility element handle.
             application (Application): The Application instance this UIElement is part of.
             parent_ui_element (Optional[UIElement]): The parent UIElement, if any.
+            strict_attribute_access (bool): Whether to raise an exception when an attribute access fails.
 
         Side Effects:
             Populates the `_ui_elements` dictionary of the application with this UIElement.
@@ -57,10 +59,11 @@ class UIElement:
         self._handle = handle
         self._application = application
         self._parent_ui_element = parent_ui_element
+        self.strict_attribute_access = strict_attribute_access
+        self.id = self._get_id()
         for action_name in self.actions:
             setattr(self, action_name, UIAction(action_name, self._handle, self))
 
-        self.id = self._get_id()
         self._application._ui_elements[self.id] = self
 
     def _get_id(self) -> str:
@@ -148,8 +151,16 @@ class UIElement:
             bool: True if the attribute is settable, False otherwise.
         """
         error, settable = AS.AXUIElementIsAttributeSettable(self._handle, attribute, None)
+        if error in [AS.kAXErrorAttributeUnsupported]:
+            return False
         if error != AS.kAXErrorSuccess:
-            raise UIAttributeAccessError(f"Error {error} while trying to check if attribute {attribute} is settable")
+            if self.strict_attribute_access:
+                raise UIAttributeAccessError(
+                    f"Error {error} while trying to check if attribute {attribute} is settable"
+                )
+            else:
+                logger.debug("Error %s while trying to check if attribute %s is settable", error, attribute)
+                return False
         return settable
 
     def __len__(self) -> int:
@@ -192,15 +203,9 @@ class UIElement:
         Raises:
             AttributeError: If the attribute is not found.
         """
-        if item == "_handle":
-            # Skip the _handle attribute to avoid infinite recursion
-            return super().__getattr__(item)
-        elif item in self.attributes:
-            try:
-                return self._get_attribute(item)
-            except KeyError:
-                return None
-        raise AttributeError(f"Attribute {item} not found")
+        if item in self.attributes:
+            return self._get_attribute(item)
+        return self.__getattribute__(item)
 
     def __setattr__(self, key: str, value: Any):
         """
@@ -216,7 +221,7 @@ class UIElement:
         Note:
             If the attribute is not part of `_attribute_names`, it is set as a normal attribute.
         """
-        if hasattr(self, key) and key in self.settable_attributes:
+        if key != "_handle" and key in self.attributes and key in self.settable_attributes:
             logger.debug("Setting attribute %s of UIElement %s to %s", key, self, value)
             AS.AXUIElementSetAttributeValue(self._handle, key, value)
         super(UIElement, self).__setattr__(key, value)
@@ -231,9 +236,6 @@ class UIElement:
         Returns:
             bool: True if the attribute exists, False otherwise.
         """
-        if item == "_handle":
-            # Skip the _handle attribute to avoid infinite recursion
-            return super().__hasattr__(item)
         return item in self.attributes
 
     def __dir__(self) -> list[str]:
@@ -243,7 +245,7 @@ class UIElement:
         Returns:
             list[str]: A list of attribute and method names.
         """
-        return super.__dir__(self) + self.attributes
+        return list(super.__dir__(self)) + self.attributes
 
     def _get_attribute(self, name: str) -> Any:
         """
@@ -259,8 +261,13 @@ class UIElement:
             KeyError: If an error occurs while retrieving the attribute.
         """
         err, value = AS.AXUIElementCopyAttributeValue(self._handle, name, None)
+        if err == AS.kAXErrorNoValue:
+            return None
         if err != AS.kAXErrorSuccess:
-            raise KeyError(f"Error {err} while trying to get attribute {name}")
+            if self.strict_attribute_access:
+                raise UIAttributeAccessError(f"Error {err} while trying to get attribute {name}")
+            logger.debug("Error %s while trying to get attribute %s", err, name)
+            return None
         return value
 
     @cached_property
@@ -305,8 +312,10 @@ class UIElement:
             If the UIElement has no children, an empty list is returned.
         """
         try:
-            children = self._get_attribute("AXChildren")
-        except KeyError:
+            children = self.AXChildren
+        except AttributeError:
+            return []
+        if children is None:
             return []
         return [UIElement(handle, self._application, self) for handle in children]
 

@@ -32,8 +32,8 @@ from langchain.schema.runnable.config import RunnableConfig
 from langchain_core.runnables import RunnableLambda
 from langchain_openai import ChatOpenAI
 
-import py2mac.langchain_py2mac.tools
 import py2mac.application
+import py2mac.langchain_py2mac.tools
 
 logger = logging.getLogger(__name__)
 

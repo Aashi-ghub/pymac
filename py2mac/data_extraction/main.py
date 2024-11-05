@@ -177,15 +177,15 @@ def clean_ui_tree(ui_data: Dict[str, Any]) -> Dict[str, Any]:
     return ui_data
 
 
-def flatten_ui_tree(component_tree: Dict[str, Any]) -> List[Dict[str, Any]]:
+def flatten_ui_tree(ui_tree: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     Flatten the UI tree into a list of components.
 
     Args:
-        component_tree (Dict[str, Any]): The component tree to flatten.
+        ui_tree (Dict[str, Any]): The UI tree to flatten.
 
     Returns:
-        List[Dict[str, Any]]: A list of components with hierarchical structure removed.
+        List[Dict[str, Any]]: A flat list of UI components.
     """
     flat_component_tree: List[Dict[str, Any]] = []
 
@@ -197,6 +197,6 @@ def flatten_ui_tree(component_tree: Dict[str, Any]) -> List[Dict[str, Any]]:
         for child in node.get("children", []):
             _flatten_component_tree(child, accumulator)
 
-    _flatten_component_tree(component_tree, flat_component_tree)
+    _flatten_component_tree(ui_tree, flat_component_tree)
 
     return flat_component_tree

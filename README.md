@@ -57,7 +57,52 @@ integrating with external services or APIs.
 **Require User Confirmation**: For safety and control, no action should be executed by AI agents or automations without
 explicit user confirmation.
 
-## Basic Usage
+# Examples
+
+To get started with the examples, clone the repository and set up the environment:
+
+```bash
+git clone git@github.com:rafalwytrykus/py2mac.git
+cd py2mac
+poetry install
+```
+
+## Library usage interactive jupyter notebook
+
+The library comes with an
+interactive [Jupyter notebook](https://github.com/rafalwytrykus/py2mac/blob/master/examples/library_usage.ipynb) that
+demonstrates the basic usage of the package. To run the notebook, execute the following commands:
+
+```bash
+cd examples
+poetry run jupyter lab
+```
+
+## AI Agent Web UI Example
+
+The library includes examples of [LangChain tool](https://github.com/rafalwytrykus/py2mac/blob/master/py2mac/langchain_py2mac/tools.py) integration and an **[AI Agent](https://github.com/rafalwytrykus/py2mac/blob/master/examples/py2mac_agent.py) capable of interacting with UI elements**.
+To launch the AI Agent example using the Chainlit web UI:
+
+1. Start the Chainlit web UI with the following commands:
+
+```bash
+cd examples
+chainlit run py2mac_agent.py -w
+```
+
+2. Open the Chainlit web UI in your browser: http://localhost:8000
+3. Click on the settings icon in the left corner of input field and select the application you want to interact with
+   from the dropdown list.
+4. You can now interact with the AI Agent by typing in the input field. The agent can read UI state, set properties, and
+   perform actions on UI elements.
+
+**NOTE**: For safety reasons, the AI Agent will not perform any actions without explicit user confirmation.
+Confirm each action in the console before it executes.
+
+
+# Basic Usage
+
+## Accessing Applications
 
 ### Accessing Running Applications
 
@@ -90,6 +135,8 @@ root_element = app.root_ui_element
 
 ### Exploring UI Elements
 
+UI elements and their attributes are loaded lazily. To access the full UI tree, you need to traverse it completely first, for example, by using the included asdict() method.
+
 ```python
 # Convert the UI tree to a dictionary
 ui_tree = root_element.asdict()
@@ -103,6 +150,9 @@ print(ui_tree)
 element_id = 'AXButton__OK__123456789'  # Replace with the actual ID
 ui_element = app.get_ui_element(element_id)
 
+# List available element attributes
+print(ui_element.attributes)
+
 # Print element attributes
 print(ui_element.AXTitle)
 print(ui_element.AXRole)
@@ -111,6 +161,9 @@ print(ui_element.AXRole)
 ### Performing Actions on UI Elements
 
 ```python
+# List available actions
+print(ui_element.actions)
+
 # Perform an action (e.g., press a button)
 try:
     ui_element.AXPress()
@@ -119,47 +172,6 @@ except UIActionError as e:
     print(f"Failed to perform action: {e}")
 ```
 
-## Examples
-
-To get started with the examples, clone the repository and set up the environment:
-
-```bash
-git clone git@github.com:rafalwytrykus/py2mac.git
-cd py2mac
-poetry install
-```
-
-### Library usage interactive jupyter notebook
-
-The library comes with an
-interactive [Jupyter notebook](https://github.com/rafalwytrykus/py2mac/blob/master/examples/library_usage.ipynb) that
-demonstrates the basic usage of the package. To run the notebook, execute the following commands:
-
-```bash
-cd examples
-poetry run jupyter lab
-```
-
-### AI Agent Web UI Example
-
-The library includes examples of [LangChain tool](https://github.com/rafalwytrykus/py2mac/blob/master/py2mac/langchain_py2mac/tools.py) integration and an **[AI Agent](https://github.com/rafalwytrykus/py2mac/blob/master/examples/py2mac_agent.py) capable of interacting with UI elements**.
-To launch the AI Agent example using the Chainlit web UI:
-
-1. Start the Chainlit web UI with the following commands:
-
-```bash
-cd examples
-chainlit run py2mac_agent.py -w
-```
-
-2. Open the Chainlit web UI in your browser: http://localhost:8000
-3. Click on the settings icon in the left corner of input field and select the application you want to interact with
-   from the dropdown list.
-4. You can now interact with the AI Agent by typing in the input field. The agent can read UI state, set properties, and
-   perform actions on UI elements.
-
-**NOTE**: For safety reasons, the AI Agent will not perform any actions without explicit user confirmation.
-Confirm each action in the console before it executes.
 
 ## Contributing
 

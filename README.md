@@ -66,8 +66,10 @@ To launch the AI Agent using the Chainlit web UI:
 
 bash
 Copy code
+```
 cd examples
 chainlit run pymac_agent.py -w
+```
 Open the web UI in your browser: http://localhost:8000.
 
 Select the application to interact with from the settings dropdown.
@@ -79,14 +81,17 @@ Accessing Applications
 Accessing Running Applications
 python
 Copy code
+```
 from pymac.application import get_running_applications
 
 apps = get_running_applications()
 for app in apps:
     print(app.localized_name, app.pid)
+```
 Interacting with the Frontmost Application
 python
 Copy code
+```
 from pymac.application import Application
 
 app = Application.from_frontmost_app()
@@ -94,24 +99,30 @@ print(f"Interacting with: {app.localized_name}")
 
 app.refresh_ui_tree()
 root_element = app.root_ui_element
+```
 Working with UI Elements
 Exploring UI Elements
 python
 Copy code
+```
 ui_tree = root_element.asdict()
 print(ui_tree)
+```
 Accessing Specific UI Elements
 python
 Copy code
+```
 element_id = 'AXButton__OK__123456789'
 ui_element = app.get_ui_element(element_id)
 
 print(ui_element.attributes)
 print(ui_element.AXTitle)
 print(ui_element.AXRole)
+```
 Performing Actions on UI Elements
 python
 Copy code
+```
 print(ui_element.actions)
 
 try:
@@ -119,5 +130,6 @@ try:
     print("Action performed successfully.")
 except UIActionError as e:
     print(f"Failed to perform action: {e}")
+```
 Contributing
 Contributions are welcome. You can help by reporting issues, adding features, improving documentation, or suggesting ideas.
